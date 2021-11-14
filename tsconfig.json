@@ -1,0 +1,13 @@
+{
+  "compilerOptions": {
+    "module": "commonjs",
+    "target": "es6",
+    "outDir": "out",
+    "rootDir": "src",
+    "esModuleInterop": true,
+    "experimentalDecorators": true,
+    "lib": ["ESNext"]
+  },
+  "include": ["src"],
+  "exclude": ["node_modules", ".vscode-test", "web"]
+}

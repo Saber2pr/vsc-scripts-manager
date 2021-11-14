@@ -1,0 +1,68 @@
+{
+	"name": "vsc-scripts-manager",
+	"displayName": "Scripts Manager",
+	"description": "manage scripts by vscode extension",
+	"publisher": "saber2pr",
+	"version": "0.0.1",
+	"engines": {
+		"vscode": "^1.56.0"
+	},
+	"categories": [
+		"Other"
+	],
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/Saber2pr/vsc-scripts-manager.git"
+	},
+	"icon": "assets/logo.png",
+	"activationEvents": [
+		"*"
+	],
+	"main": "./out/extension.js",
+	"contributes": {
+		"languages": [
+			{
+				"id": "scripts",
+				"extensions": [
+					"..scripts"
+				],
+				"aliases": [
+					"Scripts"
+				]
+			}
+		],
+		"customEditors": [
+			{
+				"viewType": "custom.editor",
+				"displayName": "CustomEditor",
+				"selector": [
+					{
+						"filenamePattern": "*.scripts"
+					}
+				],
+				"priority": "default"
+			}
+		],
+		"commands": [
+			{
+				"command": "vsc-scripts-manager.main",
+				"title": "Scripts Manager"
+			}
+		]
+	},
+	"scripts": {
+		"vscode:prepublish": "yarn run compile",
+		"compile": "tsc -p ./",
+		"watch": "tsc -watch -p ./",
+		"build": "vsce package"
+	},
+	"devDependencies": {
+		"@types/node": "^12.11.7",
+		"@types/vscode": "^1.56.0",
+		"typescript": "^4.1.3",
+		"vscode-nls-i18n": "^0.2.3"
+	},
+	"dependencies": {
+		"@saber2pr/vscode-webview": "^0.0.8"
+	}
+}
