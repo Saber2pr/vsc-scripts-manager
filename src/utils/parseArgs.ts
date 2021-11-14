@@ -1,6 +1,7 @@
-import { window } from 'vscode'
 import { readFile } from 'fs'
 import { promisify } from 'util'
+import { window } from 'vscode'
+
 import { ArgsType } from '../api/type'
 
 const ARG_DEF = /\/\/ args:\[(\S+?)\]/

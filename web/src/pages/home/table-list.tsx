@@ -1,14 +1,16 @@
-import Space from 'antd/lib/space'
 import Button from 'antd/lib/button'
+import Modal from 'antd/lib/modal'
+import Space from 'antd/lib/space'
 import Table, { ColumnsType } from 'antd/lib/Table'
 import React from 'react'
+
+import { callService } from '@saber2pr/vscode-webview'
+
+import { Services } from '../../../../src/api/type'
 import { i18n } from '../../i18n'
 import { ScriptItem } from '../../type/interface'
 import { getArray } from '../../utils/getArray'
 import { parsePathName } from '../../utils/parsePathName'
-import { callService } from '@saber2pr/vscode-webview'
-import { Services } from '../../../../src/api/type'
-import { Modal } from 'antd'
 
 export interface TableListProps {
   list: ScriptItem[]

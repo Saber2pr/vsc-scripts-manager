@@ -1,6 +1,7 @@
-import { Button } from 'antd'
+import Button from 'antd/lib/button'
 import Space from 'antd/lib/space'
 import React from 'react'
+
 import { i18n } from '../../i18n'
 
 export interface ControllerProps {

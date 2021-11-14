@@ -1,4 +1,4 @@
-import { Input } from 'antd'
+import Input from 'antd/lib/input'
 import React from 'react'
 
 import { UploadOutlined } from '@ant-design/icons'

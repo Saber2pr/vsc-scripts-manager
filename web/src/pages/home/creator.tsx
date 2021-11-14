@@ -1,5 +1,8 @@
-import { Input, Modal, Form } from 'antd'
+import Form from 'antd/lib/form'
+import Input from 'antd/lib/input'
+import Modal from 'antd/lib/modal'
 import React, { useEffect } from 'react'
+
 import { i18n } from '../../i18n'
 import { ScriptItem } from '../../type/interface'
 import { SelectFile } from './select-file'

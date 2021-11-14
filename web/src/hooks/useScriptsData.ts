@@ -1,11 +1,13 @@
-import { getArray } from './../utils/getArray'
-import { ScriptItem } from './../type/interface'
-import { IAPP_ARGS } from './../utils/getArgs'
-import { useQuery } from './useQuery'
-import { callService } from '@saber2pr/vscode-webview'
-import type { Services } from './../../../src/api/type'
 import { useEffect, useState } from 'react'
 
+import { callService } from '@saber2pr/vscode-webview'
+
+import { ScriptItem } from '../type/interface'
+import { IAPP_ARGS } from '../utils/getArgs'
+import { getArray } from '../utils/getArray'
+import { useQuery } from './useQuery'
+
+import type { Services } from './../../../src/api/type'
 const KEY = 'scripts'
 
 export const useScriptsData = () => {

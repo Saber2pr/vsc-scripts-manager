@@ -1,4 +1,8 @@
-import { Form, Input, Modal, Select, Spin } from 'antd'
+import Form from 'antd/lib/form'
+import Input from 'antd/lib/input'
+import Modal from 'antd/lib/modal'
+import Select from 'antd/lib/select'
+import Spin from 'antd/lib/spin'
 import React, { useEffect, useState } from 'react'
 
 import { callService } from '@saber2pr/vscode-webview'
