@@ -4,7 +4,7 @@ import { window } from 'vscode'
 
 import { ArgsType } from '../api/type'
 
-const ARG_DEF = /\/\/ args:\[(\S+?)\]/
+const ARG_DEF = /(\/\/|#) args:\[(\S+?)\]/
 
 export const parseArgs = async (path: string): Promise<ArgsType[]> => {
   let buf: Buffer
@@ -16,8 +16,8 @@ export const parseArgs = async (path: string): Promise<ArgsType[]> => {
   }
   const content = buf.toString()
   const result = content.match(ARG_DEF)
-  if (result && result[1]) {
-    const argsDef = result[1]
+  if (result && result[2]) {
+    const argsDef = result[2]
     if (argsDef) {
       const args = argsDef.split(',')
       return args.map(arg => {
