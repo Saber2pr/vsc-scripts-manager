@@ -13,6 +13,8 @@ export const localeMap = {
     update: 'Update',
     required: "'${name}' is required",
     select_file: 'select script file',
+    delete_confirm: 'Delete?',
+    run: 'Run Script',
   },
   'zh-cn': {
     name: '名称',
@@ -27,5 +29,7 @@ export const localeMap = {
     update: '刷新',
     required: "'${name}' 是必选字段",
     select_file: '选择脚本文件',
+    delete_confirm: '确定删除？',
+    run: '运行脚本',
   },
 }

@@ -1,5 +1,8 @@
-import { window } from 'vscode'
+import { readFileSync } from 'fs'
 import { parse, resolve } from 'path'
+import { window } from 'vscode'
+
+import { getArray } from './getArray'
 
 const Runner = {
   '.js': 'node',
@@ -7,14 +10,21 @@ const Runner = {
   '.ts': 'ts-node',
 }
 
-export const runScript = (path: string) => {
-  const terminal = window.createTerminal()
-  terminal.show()
-  const { ext } = parse(path)
+export const runScript = (path: string, args: string[]) => {
   const scriptPath = resolve(path)
-  if (ext in Runner) {
-    terminal.sendText(`${Runner[ext]} ${scriptPath}`)
-  } else {
-    window.showErrorMessage(`Cannot run script: ${scriptPath}`)
+  const { ext } = parse(path)
+  try {
+    readFileSync(scriptPath)
+    if (ext in Runner) {
+      const terminal = window.createTerminal()
+      terminal.show()
+      terminal.sendText(
+        `${Runner[ext]} ${scriptPath} ${getArray(args).join(' ')}`
+      )
+    } else {
+      window.showErrorMessage(`Cannot run script: ${scriptPath}`)
+    }
+  } catch (error) {
+    window.showErrorMessage(`run script fail: ${scriptPath}`)
   }
 }

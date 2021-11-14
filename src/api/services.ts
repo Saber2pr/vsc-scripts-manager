@@ -3,6 +3,7 @@ import vscode from 'vscode'
 import { createServiceHandler } from '@saber2pr/vscode-webview'
 
 import { RCManager } from '../store/rc'
+import { parseArgs } from '../utils/parseArgs'
 import { runScript } from '../utils/runner'
 import { Services } from './type'
 
@@ -34,8 +35,11 @@ const handleServiceMessage = createServiceHandler<Services>({
       viewColumn: vscode.ViewColumn.Beside,
     })
   },
-  async createTerminal(path) {
-    runScript(path)
+  async createTerminal({ path, args }) {
+    runScript(path, args)
+  },
+  async parseScriptArgs(path) {
+    return parseArgs(path)
   },
 })
 

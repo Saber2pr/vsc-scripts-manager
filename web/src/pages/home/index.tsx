@@ -11,15 +11,14 @@ import { ScriptItem } from '../../type/interface'
 import { useScriptsData } from '../../hooks/useScriptsData'
 import { callService } from '@saber2pr/vscode-webview'
 import { Services } from '../../../../src/api/type'
+import { Runner } from './runner'
 
 export interface Home {}
 
 export const Home = ({}: Home) => {
-  const query = useQuery<IAPP_ARGS>()
-  console.log(query)
-
   const [currentEdit, setCurrentEdit] = useState<ScriptItem>({} as any)
   const [showCreate, setShowCreate] = useState(false)
+  const [showRunner, setShowRunner] = useState(false)
 
   const { list, saveList, updateList, loading } = useScriptsData()
 
@@ -36,10 +35,6 @@ export const Home = ({}: Home) => {
 
   const onDelete = async (item: ScriptItem) => {
     await saveList(list.filter(script => script.id !== item.id))
-  }
-
-  const onRun = async (item: ScriptItem) => {
-    await callService<Services, 'createTerminal'>('createTerminal', item.path)
   }
 
   return (
@@ -59,13 +54,23 @@ export const Home = ({}: Home) => {
           setCurrentEdit(item)
           setShowCreate(true)
         }}
-        onRun={onRun}
+        onRun={item => {
+          setCurrentEdit(item)
+          setShowRunner(true)
+        }}
       />
       <Creator
         visible={showCreate}
         onCancel={() => setShowCreate(false)}
         onSave={onSave}
         initialValues={currentEdit}
+      />
+      <Runner
+        visible={showRunner}
+        onCancel={() => {
+          setShowRunner(false)
+        }}
+        script={currentEdit}
       />
     </Space>
   )

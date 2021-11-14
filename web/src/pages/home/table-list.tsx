@@ -8,6 +8,7 @@ import { getArray } from '../../utils/getArray'
 import { parsePathName } from '../../utils/parsePathName'
 import { callService } from '@saber2pr/vscode-webview'
 import { Services } from '../../../../src/api/type'
+import { Modal } from 'antd'
 
 export interface TableListProps {
   list: ScriptItem[]
@@ -49,14 +50,24 @@ export const TableList = ({
       width: 114,
       render: (value, record, index) => {
         return (
-          <Space size="small" direction="vertical">
+          <Space size="small" direction="horizontal">
             <Button type="link" onClick={() => onRun(record)}>
               {i18n.format('option_run')}
             </Button>
             <Button type="link" onClick={() => onEdit(record)}>
               {i18n.format('edit')}
             </Button>
-            <Button type="link" onClick={() => onDelete(record)}>
+            <Button
+              type="link"
+              onClick={() =>
+                Modal.confirm({
+                  title: i18n.format('delete_confirm'),
+                  onOk() {
+                    onDelete(record)
+                  },
+                })
+              }
+            >
               {i18n.format('delete')}
             </Button>
           </Space>

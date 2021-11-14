@@ -7,5 +7,12 @@ export type Services = {
   getLang: Pair<any, any>
   openFile: Pair<any, string>
   showFileEditor: Pair<string, any>
-  createTerminal: Pair<string, any>
+  createTerminal: Pair<{ path: string; args: string[] }, any>
+  parseScriptArgs: Pair<string, ArgsType[]>
+}
+
+export interface ArgsType {
+  type: 'input' | 'select' | 'checkbox'
+  label: string
+  values?: string[]
 }

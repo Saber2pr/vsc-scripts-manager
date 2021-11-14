@@ -31,7 +31,7 @@ export const Creator = ({
       <Form
         initialValues={initialValues}
         validateMessages={{
-          required: "'${name}' 是必选字段",
+          required: i18n.format('required'),
         }}
         form={form}
         onFinish={values => {
@@ -50,6 +50,9 @@ export const Creator = ({
         </Form.Item>
         <Form.Item label={i18n.format('description')} name="description">
           <Input.TextArea />
+        </Form.Item>
+        <Form.Item hidden>
+          <Input type="submit" />
         </Form.Item>
       </Form>
     </Modal>
