@@ -1,9 +1,5 @@
-import './style.less'
-
 import Space from 'antd/lib/space'
 import React, { useState } from 'react'
-
-
 
 import { useScriptsData } from '../../hooks/useScriptsData'
 import { ScriptItem } from '../../type/interface'

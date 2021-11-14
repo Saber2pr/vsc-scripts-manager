@@ -1,7 +1,7 @@
 import Input from 'antd/lib/input'
 import React from 'react'
 
-import { UploadOutlined } from '@ant-design/icons'
+import UploadOutlined from '@ant-design/icons/UploadOutlined'
 import { callService } from '@saber2pr/vscode-webview'
 
 import type { Services } from '../../../../src/api/type'

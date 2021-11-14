@@ -5,7 +5,7 @@ import { Route, useHistory } from 'react-router'
 
 import { callService } from '@saber2pr/vscode-webview'
 
-import { Services } from '../../src/api/type'
+import type { Services } from '../../src/api/type'
 import { i18n } from './i18n'
 import { Home } from './pages'
 import { APP_ARGS } from './utils'
