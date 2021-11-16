@@ -1,7 +1,7 @@
 import Button from 'antd/lib/button'
 import Modal from 'antd/lib/modal'
 import Space from 'antd/lib/space'
-import Table, { ColumnsType } from 'antd/lib/Table'
+import { ColumnsType } from 'antd/lib/Table'
 import React from 'react'
 
 import { callService } from '@saber2pr/vscode-webview'
@@ -89,6 +89,7 @@ export const TableList = ({
       rowKey="id"
       dataSource={getArray(list)}
       onSort={onUpdate}
+      scroll={{ x: 800 }}
     ></SortTable>
   )
 }
