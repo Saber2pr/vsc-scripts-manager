@@ -52,7 +52,7 @@ export const Creator = ({
           <SelectFile />
         </Form.Item>
         <Form.Item label={i18n.format('description')} name="description">
-          <Input.TextArea />
+          <Input />
         </Form.Item>
         <Form.Item hidden>
           <Input type="submit" />
