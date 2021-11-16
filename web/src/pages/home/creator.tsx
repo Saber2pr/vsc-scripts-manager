@@ -32,6 +32,8 @@ export const Creator = ({
       onOk={() => form.submit()}
     >
       <Form
+        labelCol={{ span: 4 }}
+        wrapperCol={{ span: 18 }}
         initialValues={initialValues}
         validateMessages={{
           required: i18n.format('required'),

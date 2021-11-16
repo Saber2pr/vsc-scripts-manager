@@ -53,6 +53,7 @@ export const Home = ({}: Home) => {
           setCurrentEdit(item)
           setShowRunner(true)
         }}
+        onUpdate={saveList}
       />
       <Creator
         visible={showCreate}

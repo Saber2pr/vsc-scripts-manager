@@ -15,6 +15,7 @@ export const localeMap = {
     select_file: 'select script file',
     delete_confirm: 'Delete?',
     run: 'Run Script',
+    sort: 'Sort',
   },
   'zh-cn': {
     name: '名称',
@@ -31,5 +32,6 @@ export const localeMap = {
     select_file: '选择脚本文件',
     delete_confirm: '确定删除？',
     run: '运行脚本',
+    sort: '排序',
   },
 }

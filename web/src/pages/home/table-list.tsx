@@ -11,12 +11,14 @@ import { i18n } from '../../i18n'
 import { ScriptItem } from '../../type/interface'
 import { getArray } from '../../utils/getArray'
 import { parsePathName } from '../../utils/parsePathName'
+import { SortTable } from './sort-table'
 
 export interface TableListProps {
   list: ScriptItem[]
   onRun: (item: ScriptItem) => void
   onEdit: (item: ScriptItem) => void
   onDelete: (item: ScriptItem) => void
+  onUpdate: (list: ScriptItem[]) => void
   loading?: boolean
 }
 
@@ -26,6 +28,7 @@ export const TableList = ({
   onEdit,
   onRun,
   loading,
+  onUpdate,
 }: TableListProps) => {
   const columns: ColumnsType<ScriptItem> = [
     {
@@ -79,14 +82,13 @@ export const TableList = ({
   ]
 
   return (
-    <Table
+    <SortTable
       loading={loading}
       size="small"
       columns={columns}
       rowKey="id"
       dataSource={getArray(list)}
-    >
-      test
-    </Table>
+      onSort={onUpdate}
+    ></SortTable>
   )
 }
