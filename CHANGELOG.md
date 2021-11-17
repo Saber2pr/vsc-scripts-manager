@@ -2,6 +2,19 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.0.2](https://github.com/Saber2pr/vsc-scripts-manager/compare/v0.0.1...v0.0.2) (2021-11-17)
+
+
+### Features
+
+* sortable ([4b54887](https://github.com/Saber2pr/vsc-scripts-manager/commit/4b548876fd5be2e95586473c9e2c7dd31f17fa76))
+* terminal singleton ([6d962d3](https://github.com/Saber2pr/vsc-scripts-manager/commit/6d962d31ef090eac16478d22bac340af064389ee))
+
+
+### Bug Fixes
+
+* ui render ([99245df](https://github.com/Saber2pr/vsc-scripts-manager/commit/99245dface637354c8567e11ad86cfa46208d7f6))
+
 ### 0.0.1 (2021-11-14)
 
 
