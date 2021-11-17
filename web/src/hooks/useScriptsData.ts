@@ -32,12 +32,12 @@ export const useScriptsData = () => {
   const saveList = async (list: ScriptItem[]) => {
     if (file) {
       setLoading(true)
+      setList(getArray(list))
       await callService<Services, 'saveData'>('saveData', {
         path: file,
         key: KEY,
         value: list,
       })
-      setList(getArray(list))
       setLoading(false)
     }
   }
