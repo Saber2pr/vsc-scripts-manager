@@ -22,17 +22,27 @@ const getTerminal = () => {
   return window.createTerminal(RunnerName)
 }
 
-export const runScript = (path: string, args: string[]) => {
+const runTerminal = (command: string) => {
+  const terminal = getTerminal()
+  terminal.show()
+  terminal.sendText(command)
+}
+
+export const runScript = (
+  path: string,
+  args: string[],
+  type: 'file' | 'cli'
+) => {
+  if (type === 'cli') {
+    runTerminal(`${path} ${getArray(args).join(' ')}`)
+    return
+  }
   const scriptPath = resolve(path)
   const { ext } = parse(path)
   try {
     readFileSync(scriptPath)
     if (ext in Runner) {
-      const terminal = getTerminal()
-      terminal.show()
-      terminal.sendText(
-        `${Runner[ext]} ${scriptPath} ${getArray(args).join(' ')}`
-      )
+      runTerminal(`${Runner[ext]} ${scriptPath} ${getArray(args).join(' ')}`)
     } else {
       window.showErrorMessage(`Cannot run script: ${scriptPath}`)
     }

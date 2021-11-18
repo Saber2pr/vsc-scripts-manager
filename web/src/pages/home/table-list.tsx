@@ -35,12 +35,14 @@ export const TableList = ({
       title: i18n.format('filename'),
       width: 200,
       dataIndex: 'path',
-      render: path => (
+      render: (path, record) => (
         <Button
-          type="link"
-          onClick={() =>
-            callService<Services, 'showFileEditor'>('showFileEditor', path)
-          }
+          type={record?.type === 'cli' ? 'text' : 'link'}
+          onClick={() => {
+            if (record?.type !== 'cli') {
+              callService<Services, 'showFileEditor'>('showFileEditor', path)
+            }
+          }}
         >
           {parsePathName(path)}
         </Button>

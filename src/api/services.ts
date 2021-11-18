@@ -6,6 +6,11 @@ import { RCManager } from '../store/rc'
 import { parseArgs } from '../utils/parseArgs'
 import { runScript } from '../utils/runner'
 import { Services } from './type'
+import { join } from 'path'
+import { homedir } from 'os'
+import { FILE_CONFIG } from '../constants'
+
+export const FILE_CONFIG_PATH = join(homedir(), FILE_CONFIG)
 
 const handleServiceMessage = createServiceHandler<Services>({
   async saveData({ path, key, value }) {
@@ -35,8 +40,8 @@ const handleServiceMessage = createServiceHandler<Services>({
       viewColumn: vscode.ViewColumn.Beside,
     })
   },
-  async createTerminal({ path, args }) {
-    runScript(path, args)
+  async createTerminal({ path, args, type }) {
+    runScript(path, args, type)
   },
   async parseScriptArgs(path) {
     return parseArgs(path)

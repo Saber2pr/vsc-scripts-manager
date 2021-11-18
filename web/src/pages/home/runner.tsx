@@ -29,11 +29,12 @@ export const Runner = ({ script, visible, onCancel }: RunnerProps) => {
     callService<Services, 'createTerminal'>('createTerminal', {
       path: script.path,
       args: values ? Object.values(values) : [],
+      type: script?.type,
     }).then(() => onCancel())
   }
 
   useEffect(() => {
-    if (script?.path && visible) {
+    if (script?.path && visible && script?.type === 'file') {
       setLoading(true)
       callService<Services, 'parseScriptArgs'>(
         'parseScriptArgs',
@@ -51,10 +52,12 @@ export const Runner = ({ script, visible, onCancel }: RunnerProps) => {
 
   return (
     <Modal
-      title={i18n.format('run')}
+      title={script?.description || i18n.format('run')}
       visible={visible}
       onCancel={() => onCancel()}
       onOk={() => form.submit()}
+      okText={i18n.format('run')}
+      cancelText={i18n.format('cancel')}
     >
       <Spin spinning={loading}>
         <Form

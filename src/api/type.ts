@@ -7,7 +7,10 @@ export type Services = {
   getLang: Pair<any, any>
   openFile: Pair<any, string>
   showFileEditor: Pair<string, any>
-  createTerminal: Pair<{ path: string; args: string[] }, any>
+  createTerminal: Pair<
+    { path: string; args: string[]; type: 'file' | 'cli' },
+    any
+  >
   parseScriptArgs: Pair<string, ArgsType[]>
 }
 

@@ -16,6 +16,10 @@ export const localeMap = {
     delete_confirm: 'Delete?',
     run: 'Run Script',
     sort: 'Sort',
+    file: 'File',
+    cli: 'CLI',
+    cancel: 'Cancel',
+    ok: 'Ok',
   },
   'zh-cn': {
     name: '名称',
@@ -33,5 +37,9 @@ export const localeMap = {
     delete_confirm: '确定删除？',
     run: '运行脚本',
     sort: '排序',
+    file: '文件',
+    cli: '命令',
+    cancel: '取消',
+    ok: '确定',
   },
 }

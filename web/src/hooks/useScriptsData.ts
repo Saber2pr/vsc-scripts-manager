@@ -1,3 +1,4 @@
+import { KEY_SCRIPTS_LIST } from './../../../src/constants'
 import { useEffect, useState } from 'react'
 
 import { callService } from '@saber2pr/vscode-webview'
@@ -8,7 +9,6 @@ import { getArray } from '../utils/getArray'
 import { useQuery } from './useQuery'
 
 import type { Services } from './../../../src/api/type'
-const KEY = 'scripts'
 
 export const useScriptsData = () => {
   const [list, setList] = useState<ScriptItem[]>([])
@@ -22,7 +22,7 @@ export const useScriptsData = () => {
       setLoading(true)
       const data = await callService<Services, 'getData'>('getData', {
         path: file,
-        key: KEY,
+        key: KEY_SCRIPTS_LIST,
       })
       setList(getArray(data))
       setLoading(false)
@@ -35,7 +35,7 @@ export const useScriptsData = () => {
       setList(getArray(list))
       await callService<Services, 'saveData'>('saveData', {
         path: file,
-        key: KEY,
+        key: KEY_SCRIPTS_LIST,
         value: list,
       })
       setLoading(false)

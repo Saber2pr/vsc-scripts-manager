@@ -12,6 +12,8 @@ manage scripts by vscode extension.
 
 - Create and Edit `*.scripts` file.
 
+- Default scripts `~/.scriptslistrc`, Click the `Scripts` StatusBar at bottom left.
+
 script args format:
 
 javascript/typescript:
