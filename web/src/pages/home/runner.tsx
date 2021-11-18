@@ -43,6 +43,8 @@ export const Runner = ({ script, visible, onCancel }: RunnerProps) => {
         setArgs(args)
         setLoading(false)
       })
+    } else {
+      setArgs([])
     }
   }, [script?.path, visible])
 
