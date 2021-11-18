@@ -20,6 +20,7 @@ export const localeMap = {
     cli: 'CLI',
     cancel: 'Cancel',
     ok: 'Ok',
+    script: 'Script',
   },
   'zh-cn': {
     name: '名称',
@@ -41,5 +42,6 @@ export const localeMap = {
     cli: '命令',
     cancel: '取消',
     ok: '确定',
+    script: '脚本',
   },
 }

@@ -1,4 +1,5 @@
 import Button from 'antd/lib/button'
+import Text from 'antd/lib/typography/Text'
 import Modal from 'antd/lib/modal'
 import Space from 'antd/lib/space'
 import { ColumnsType } from 'antd/lib/Table'
@@ -32,21 +33,24 @@ export const TableList = ({
 }: TableListProps) => {
   const columns: ColumnsType<ScriptItem> = [
     {
-      title: i18n.format('filename'),
-      width: 200,
+      title: i18n.format('script'),
       dataIndex: 'path',
-      render: (path, record) => (
-        <Button
-          type={record?.type === 'cli' ? 'text' : 'link'}
-          onClick={() => {
-            if (record?.type !== 'cli') {
-              callService<Services, 'showFileEditor'>('showFileEditor', path)
-            }
-          }}
-        >
-          {parsePathName(path)}
-        </Button>
-      ),
+      render: (path, record) => {
+        const isCli = record?.type === 'cli'
+        return (
+          <Text
+            style={isCli ? {} : { color: '#177ddc', cursor: 'pointer' }}
+            ellipsis
+            onClick={() => {
+              if (!isCli) {
+                callService<Services, 'showFileEditor'>('showFileEditor', path)
+              }
+            }}
+          >
+            {isCli ? path : parsePathName(path)}
+          </Text>
+        )
+      },
     },
     {
       title: i18n.format('description'),
@@ -54,7 +58,8 @@ export const TableList = ({
     },
     {
       title: i18n.format('option'),
-      width: 114,
+      width: 220,
+      fixed: 'right',
       render: (value, record, index) => {
         return (
           <Space size="small" direction="horizontal">
