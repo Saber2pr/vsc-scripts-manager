@@ -27,7 +27,7 @@ export const Home = ({}: Home) => {
       Object.assign(script, item)
       await saveList([...list])
     } else {
-      await saveList(list.concat(item))
+      await saveList([item, ...list])
     }
     setState({ showCreate: false, currentEdit: item })
   }
