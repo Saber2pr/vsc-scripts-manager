@@ -10,10 +10,10 @@ import { callService } from '@saber2pr/vscode-webview'
 import { i18n } from '../../i18n'
 import { ScriptItem } from '../../type/interface'
 import { getArray } from '../../utils/getArray'
+import { parseScriptName } from '../../utils/parsePathName'
 import { FormCheckbox } from './checkbox'
 
 import type { ArgsType, Services } from '../../../../src/api/type'
-
 export interface RunnerProps {
   script: ScriptItem
   visible?: boolean
@@ -27,6 +27,7 @@ export const Runner = ({ script, visible, onCancel }: RunnerProps) => {
 
   const run = (values?: any) => {
     callService<Services, 'createTerminal'>('createTerminal', {
+      id: parseScriptName(script),
       path: script.path,
       args: values ? Object.values(values) : [],
       type: script?.type,

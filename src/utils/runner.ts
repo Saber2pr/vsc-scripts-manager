@@ -10,31 +10,32 @@ const Runner = {
   '.ts': 'ts-node',
 }
 
-const RunnerName = 'scripts-runner'
+const getRunnerName = (id: string) => id
 
-const getTerminal = () => {
+const getTerminal = (id: string) => {
   if (window.terminals && window.terminals.length > 0) {
-    const result = window.terminals.find(item => item.name === RunnerName)
+    const result = window.terminals.find(item => item.name === getRunnerName(id))
     if (result) {
       return result
     }
   }
-  return window.createTerminal(RunnerName)
+  return window.createTerminal(getRunnerName(id))
 }
 
-const runTerminal = (command: string) => {
-  const terminal = getTerminal()
+const runTerminal = (id: string, command: string) => {
+  const terminal = getTerminal(getRunnerName(id))
   terminal.show()
   terminal.sendText(command)
 }
 
 export const runScript = (
+  id: string,
   path: string,
   args: string[],
   type: 'file' | 'cli'
 ) => {
   if (type === 'cli') {
-    runTerminal(`${path} ${getArray(args).join(' ')}`)
+    runTerminal(id, `${path} ${getArray(args).join(' ')}`)
     return
   }
   const scriptPath = resolve(path)
@@ -42,7 +43,7 @@ export const runScript = (
   try {
     readFileSync(scriptPath)
     if (ext in Runner) {
-      runTerminal(`${Runner[ext]} ${scriptPath} ${getArray(args).join(' ')}`)
+      runTerminal(id, `${Runner[ext]} ${scriptPath} ${getArray(args).join(' ')}`)
     } else {
       window.showErrorMessage(`Cannot run script: ${scriptPath}`)
     }

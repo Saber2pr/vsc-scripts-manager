@@ -40,8 +40,8 @@ const handleServiceMessage = createServiceHandler<Services>({
       viewColumn: vscode.ViewColumn.Beside,
     })
   },
-  async createTerminal({ path, args, type }) {
-    runScript(path, args, type)
+  async createTerminal({id, path, args, type }) {
+    runScript(id, path, args, type)
   },
   async parseScriptArgs(path) {
     return parseArgs(path)

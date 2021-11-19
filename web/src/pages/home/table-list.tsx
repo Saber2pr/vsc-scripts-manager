@@ -1,8 +1,8 @@
 import Button from 'antd/lib/button'
-import Text from 'antd/lib/typography/Text'
 import Modal from 'antd/lib/modal'
 import Space from 'antd/lib/space'
 import { ColumnsType } from 'antd/lib/Table'
+import Text from 'antd/lib/typography/Text'
 import React from 'react'
 
 import { callService } from '@saber2pr/vscode-webview'
@@ -11,7 +11,7 @@ import { Services } from '../../../../src/api/type'
 import { i18n } from '../../i18n'
 import { ScriptItem } from '../../type/interface'
 import { getArray } from '../../utils/getArray'
-import { parsePathName } from '../../utils/parsePathName'
+import { parseScriptName } from '../../utils/parsePathName'
 import { SortTable } from './sort-table'
 
 export interface TableListProps {
@@ -47,7 +47,7 @@ export const TableList = ({
               }
             }}
           >
-            {isCli ? path : parsePathName(path)}
+            {parseScriptName(record)}
           </Text>
         )
       },
