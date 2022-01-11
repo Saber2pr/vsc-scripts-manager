@@ -2,6 +2,21 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.0.7](https://github.com/Saber2pr/vsc-scripts-manager/compare/v0.0.3...v0.0.7) (2022-01-11)
+
+
+### Features
+
+* format form ([e7d15a7](https://github.com/Saber2pr/vsc-scripts-manager/commit/e7d15a7ffd5a7ad0607b3dfb5743c46187248aec))
+* new script at firstline ([648052a](https://github.com/Saber2pr/vsc-scripts-manager/commit/648052a32154519c23c12f5edc02d0a4ea1259a2))
+* runner name ([ca6e49b](https://github.com/Saber2pr/vsc-scripts-manager/commit/ca6e49b3fccf6036b99350f4b37fcc075f89875b))
+* stylefix ([78fa521](https://github.com/Saber2pr/vsc-scripts-manager/commit/78fa52172b8f32cfe01e702d25f5b1b5487d0d4d))
+
+
+### Bug Fixes
+
+* args ([7e5be39](https://github.com/Saber2pr/vsc-scripts-manager/commit/7e5be39281ca14930278882973061e59745fd552))
+
 ### [0.0.3](https://github.com/Saber2pr/vsc-scripts-manager/compare/v0.0.2...v0.0.3) (2021-11-18)
 
 
