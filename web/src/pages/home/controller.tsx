@@ -12,8 +12,8 @@ export interface ControllerProps {
 export const Controller = ({ onCreate, onUpdate }: ControllerProps) => {
   return (
     <Space direction="horizontal" style={{ width: '100%' }}>
-      <Button onClick={onCreate}>{i18n.format('create')}</Button>
-      <Button onClick={onUpdate}>{i18n.format('update')}</Button>
+      <Button size="small" onClick={onCreate}>{i18n.format('create')}</Button>
+      <Button size="small" onClick={onUpdate}>{i18n.format('update')}</Button>
     </Space>
   )
 }
