@@ -89,7 +89,7 @@ export const Runner = ({ script, visible, onCancel }: RunnerProps) => {
               })
             }
           >
-            {i18n.format('format')}
+            {i18n.format('copy')}
           </Button>
           <Button onClick={() => onCancel()}>{i18n.format('cancel')}</Button>
           <Button type="primary" onClick={() => form.submit()}>

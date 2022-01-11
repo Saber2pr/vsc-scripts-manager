@@ -21,7 +21,6 @@ export const localeMap = {
     cancel: 'Cancel',
     ok: 'Ok',
     script: 'Script',
-    format: 'Formatting',
     copy: 'Copy Content'
   },
   'zh-cn': {
@@ -45,7 +44,6 @@ export const localeMap = {
     cancel: '取消',
     ok: '确定',
     script: '脚本',
-    format: '格式化内容',
     copy: '复制内容'
   },
 }
