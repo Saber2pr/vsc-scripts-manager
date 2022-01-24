@@ -46,7 +46,8 @@
 		"commands": [
 			{
 				"command": "vsc-scripts-manager.main",
-				"title": "Scripts Manager"
+				"title": "Scripts Manager",
+				"icon": "assets/logo.png"
 			}
 		]
 	},
