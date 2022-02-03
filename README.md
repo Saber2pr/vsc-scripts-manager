@@ -8,27 +8,47 @@
 
 manage scripts by vscode extension.
 
+## Overview
+
+1. click statusBar at bottom left:
+
+![](https://cdn.jsdelivr.net/gh/saber2pr/MyWeb@master/resource/image/vsc-scriptlist-bar.webp)
+
+2. create script item with cli command:
+
+![](https://cdn.jsdelivr.net/gh/saber2pr/MyWeb@master/resource/image/vsc-scriptlist-add.webp)
+
+3. run script:
+
+![](https://cdn.jsdelivr.net/gh/saber2pr/MyWeb@master/resource/image/vsc-scriptlist-run.webp)
+
 ## Usage
+
+for create script with a file:
 
 - Create and Edit `*.scripts` file.
 
 - Default scripts `~/.scriptslistrc`, Click the `Scripts` StatusBar at bottom left.
 
-script args format:
+for file script, here is format for args:
+
+> generate the parameter form using the special comment
 
 javascript/typescript:
 
 ```js
-// args:[name]
 // args:[name,type{dev|prod},force?]
 
 console.log(process.argv.slice(2))
 ```
 
-shell:
+the parameter form like this:
+
+![](https://cdn.jsdelivr.net/gh/saber2pr/MyWeb@master/resource/image/vsc-scriptlist-form.webp)
+
+for shell:
 
 ```sh
-# args:[name]
 # args:[name,type{dev|prod},force?]
 
 echo $@
