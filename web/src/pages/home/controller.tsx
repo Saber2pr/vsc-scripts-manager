@@ -1,4 +1,4 @@
-import { Divider } from 'antd'
+import Divider from 'antd/lib/divider'
 import Button from 'antd/lib/button'
 import Space from 'antd/lib/space'
 import React from 'react'
