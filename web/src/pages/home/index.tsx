@@ -1,3 +1,5 @@
+import Button from 'antd/lib/button'
+import Space from 'antd/lib/space'
 import Affix from 'antd/lib/affix'
 import Divider from 'antd/lib/divider'
 import message from 'antd/lib/message'
@@ -6,6 +8,7 @@ import React from 'react'
 import { callService } from '@saber2pr/vscode-webview'
 
 import { KEY_SCRIPTS_LIST } from '../../../../src/constants'
+import { useSettingsModal } from '../../components'
 import { useQuery } from '../../hooks/useQuery'
 import { useScriptsData } from '../../hooks/useScriptsData'
 import { useSetParticalState } from '../../hooks/useSetParticalState'
@@ -13,7 +16,6 @@ import { i18n } from '../../i18n'
 import { ScriptItem } from '../../type/interface'
 import { IAPP_ARGS } from '../../utils'
 import { dedup, getArray } from '../../utils/getArray'
-import { Controller } from './controller'
 import { Creator } from './creator'
 import { Runner } from './runner'
 import { TableList } from './table-list'
@@ -49,6 +51,32 @@ export const Home = ({}: Home) => {
   const query = useQuery<IAPP_ARGS>()
   const name = query?.name
 
+  const { modal, setVisible } = useSettingsModal({
+    initValues: {},
+    async onFinish(values) {},
+    onSaveAs: async () => {
+      await callService<Services, 'SaveFileAs'>('SaveFileAs', {
+        content: JSON.stringify({
+          [KEY_SCRIPTS_LIST]: list,
+        }),
+        name: `${name}.scripts`,
+      })
+    },
+    onImport: async () => {
+      const content = await callService<Services, 'readFile'>('readFile', null)
+      if (content) {
+        const newList = getArray(content[KEY_SCRIPTS_LIST])
+        const nextList = dedup(
+          getArray(list).concat(newList),
+          (a, b) => a.id === b.id
+        )
+        await saveList(nextList)
+        message.success(i18n.format('import_tip'))
+        setVisible(false)
+      }
+    },
+  })
+
   return (
     <>
       <TableList
@@ -66,36 +94,29 @@ export const Home = ({}: Home) => {
       <Affix offsetBottom={0}>
         <div className="tools-wrapper">
           <Divider className="tools-wrapper-div" style={{ margin: 0 }} />
-          <Controller
-            onCreate={() => {
-              setState({ showCreate: true, currentEdit: null })
-            }}
-            onUpdate={updateList}
-            onSaveAs={async () => {
-              await callService<Services, 'SaveFileAs'>('SaveFileAs', {
-                content: JSON.stringify({
-                  [KEY_SCRIPTS_LIST]: list,
-                }),
-                name: `${name}.scripts`,
-              })
-            }}
-            onImport={async api => {
-              const content = await callService<Services, 'readFile'>(
-                'readFile',
-                null
-              )
-              if (content) {
-                const newList = getArray(content[KEY_SCRIPTS_LIST])
-                const nextList = dedup(
-                  getArray(list).concat(newList),
-                  (a, b) => a.id === b.id
-                )
-                await saveList(nextList)
-                message.success(i18n.format('import_tip'))
-                api.setVisible(false)
-              }
-            }}
-          />
+          <Space
+            direction="horizontal"
+            style={{ width: '100%' }}
+            split={<Divider type="vertical" />}
+          >
+            <Button
+              type="text"
+              onClick={() => setState({ showCreate: true, currentEdit: null })}
+            >
+              {i18n.format('create')}
+            </Button>
+            <Button type="text" onClick={updateList}>
+              {i18n.format('update')}
+            </Button>
+            <Button
+              type="text"
+              onClick={() => {
+                setVisible(true)
+              }}
+            >
+              {i18n.format('setting')}
+            </Button>
+          </Space>
         </div>
       </Affix>
       <Creator
@@ -111,6 +132,7 @@ export const Home = ({}: Home) => {
         }}
         script={currentEdit}
       />
+      {modal}
     </>
   )
 }
