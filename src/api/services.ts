@@ -1,14 +1,16 @@
+import { homedir } from 'os'
+import { join } from 'path'
 import vscode from 'vscode'
 
 import { createServiceHandler } from '@saber2pr/vscode-webview'
 
+import { FILE_CONFIG } from '../constants'
 import { RCManager } from '../store/rc'
+import { openFile } from '../utils/openFile'
 import { parseArgs } from '../utils/parseArgs'
 import { runScript } from '../utils/runner'
+import { saveWorkspaceFileAs } from '../utils/saveWorkspaceFile'
 import { Services } from './type'
-import { join } from 'path'
-import { homedir } from 'os'
-import { FILE_CONFIG } from '../constants'
 
 export const FILE_CONFIG_PATH = join(homedir(), FILE_CONFIG)
 
@@ -40,12 +42,14 @@ const handleServiceMessage = createServiceHandler<Services>({
       viewColumn: vscode.ViewColumn.Beside,
     })
   },
-  async createTerminal({id, path, args, type }) {
+  async createTerminal({ id, path, args, type }) {
     runScript(id, path, args, type)
   },
   async parseScriptArgs(path) {
     return parseArgs(path)
   },
+  SaveFileAs: ({ name, content }) => saveWorkspaceFileAs(name, content),
+  readFile: () => openFile(),
 })
 
 export { handleServiceMessage }

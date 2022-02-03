@@ -8,10 +8,12 @@ export type Services = {
   openFile: Pair<any, string>
   showFileEditor: Pair<string, any>
   createTerminal: Pair<
-    { id:string, path: string; args: string[]; type: 'file' | 'cli' },
+    { id: string; path: string; args: string[]; type: 'file' | 'cli' },
     any
   >
   parseScriptArgs: Pair<string, ArgsType[]>
+  SaveFileAs: Pair<{ name: string; content: string }, any>
+  readFile: Pair<any, any>
 }
 
 export interface ArgsType {

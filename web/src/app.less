@@ -15,5 +15,16 @@
 }
 
 .app {
-  padding-top: 8px;
+  .tools-wrapper {
+    background-color: var(--vscode-editor-background) !important;
+    height: 48px;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    position: relative;
+    &-div {
+      position: absolute;
+      top: 0;
+    }
+  }
 }

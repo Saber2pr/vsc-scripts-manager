@@ -24,7 +24,8 @@
 			{
 				"id": "scripts",
 				"extensions": [
-					"..scripts"
+					".scripts",
+					".scriptslistrc"
 				],
 				"aliases": [
 					"Scripts"
