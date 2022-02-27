@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.0.10](https://github.com/Saber2pr/vsc-scripts-manager/compare/v0.0.9...v0.0.10) (2022-02-03)
+
+
+### Features
+
+* export & import ([20ac841](https://github.com/Saber2pr/vsc-scripts-manager/commit/20ac841358735df606628d9226f7c93890cdcc26))
+
 ### [0.0.9](https://github.com/Saber2pr/vsc-scripts-manager/compare/v0.0.8...v0.0.9) (2022-01-24)
 
 
