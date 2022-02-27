@@ -1,8 +1,8 @@
-import Tabs from 'antd/lib/tabs'
-import Form from 'antd/lib/form'
-import Input from 'antd/lib/input'
-import Modal from 'antd/lib/modal'
 import React, { useEffect, useState } from 'react'
+import Tabs from "antd/lib/tabs";
+import Form from "antd/lib/form";
+import Input from "antd/lib/input";
+import Modal from "antd/lib/modal";
 
 import { i18n } from '../../i18n'
 import { ScriptItem } from '../../type/interface'
