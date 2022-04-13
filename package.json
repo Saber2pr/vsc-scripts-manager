@@ -3,7 +3,7 @@
 	"displayName": "Scripts Manager",
 	"description": "manage scripts by vscode extension",
 	"publisher": "saber2pr",
-	"version": "0.0.11",
+	"version": "0.0.12",
 	"engines": {
 		"vscode": "^1.56.0"
 	},
