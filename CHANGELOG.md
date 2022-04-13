@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.0.11](https://github.com/Saber2pr/vsc-scripts-manager/compare/v0.0.10...v0.0.11) (2022-04-13)
+
+
+### Bug Fixes
+
+* retainContextWhenHidden ([59174d4](https://github.com/Saber2pr/vsc-scripts-manager/commit/59174d412d5e327e657dab235055ec0307783e34))
+
 ### [0.0.10](https://github.com/Saber2pr/vsc-scripts-manager/compare/v0.0.9...v0.0.10) (2022-02-03)
 
 
