@@ -1,4 +1,3 @@
-import Table, { ColumnsType, TableProps } from 'antd/lib/Table'
 import React, { useMemo } from 'react'
 import MenuOutlined from '@ant-design/icons/MenuOutlined'
 
@@ -9,6 +8,7 @@ import {
 } from 'react-sortable-hoc'
 import { arrayMoveImmutable } from 'array-move'
 import { i18n } from '../../i18n'
+import Table, { ColumnsType, TableProps } from 'antd/lib/Table'
 
 const DragHandle = sortableHandle(() => (
   <MenuOutlined style={{ cursor: 'grab', color: '#999' }} />
