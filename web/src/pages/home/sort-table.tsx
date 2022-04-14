@@ -8,7 +8,7 @@ import {
 } from 'react-sortable-hoc'
 import { arrayMoveImmutable } from 'array-move'
 import { i18n } from '../../i18n'
-import Table, { ColumnsType, TableProps } from 'antd/lib/Table'
+import { Table, TableColumnsType, TableProps } from 'antd'
 
 const DragHandle = sortableHandle(() => (
   <MenuOutlined style={{ cursor: 'grab', color: '#999' }} />
@@ -33,7 +33,7 @@ export function SortTable<T extends { id: string }>({
           align: 'center',
           className: 'drag-visible',
           render: () => <DragHandle />,
-        } as ColumnsType<T>[0],
+        } as TableColumnsType<T>[0],
       ].concat(columns),
     [columns]
   )
