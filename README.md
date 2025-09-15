@@ -4,8 +4,6 @@
 
 ---
 
-[![Version for VS Code Extension](https://vsmarketplacebadge.apphb.com/version-short/saber2pr.scripts-manager.svg?logo=visual-studio-code)](https://marketplace.visualstudio.com/items?itemName=saber2pr.scripts-manager) [![Installs](https://vsmarketplacebadge.apphb.com/installs/saber2pr.scripts-manager.svg)](https://marketplace.visualstudio.com/items?itemName=saber2pr.scripts-manager) [![Rating](https://vsmarketplacebadge.apphb.com/rating/saber2pr.scripts-manager.svg)](https://marketplace.visualstudio.com/items?itemName=saber2pr.scripts-manager)
-
 manage scripts by vscode extension.
 
 ## Overview
