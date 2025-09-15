@@ -31,12 +31,6 @@ jobs:
         env:
           NODE_OPTIONS: '--openssl-legacy-provider'
 
-      - name: Install vsce
-        run: npm install -g @vscode/vsce
-
-      - name: Package extension
-        run: vsce package --no-dependencies
-
       - name: Publish to Open VSX Registry
         uses: HaaLeo/publish-vscode-extension@v1
         with:
