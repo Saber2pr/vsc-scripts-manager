@@ -57,6 +57,7 @@
 		"compile": "tsc -p ./ && cd web && yarn build",
 		"watch": "tsc -watch -p ./",
 		"build": "cd web && yarn build && cd .. && vsce package",
+		"package": "vsce package",
 		"release": "standard-version"
 	},
 	"devDependencies": {
