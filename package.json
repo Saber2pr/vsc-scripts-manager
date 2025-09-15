@@ -53,7 +53,7 @@
 		]
 	},
 	"scripts": {
-		"vscode:prepublish": "yarn run compile",
+		"vscode:prepublish": "NODE_OPTIONS='--openssl-legacy-provider' yarn run compile",
 		"compile": "tsc -p ./ && cd web && yarn build",
 		"watch": "tsc -watch -p ./",
 		"build": "cd web && yarn build && cd .. && vsce package",
