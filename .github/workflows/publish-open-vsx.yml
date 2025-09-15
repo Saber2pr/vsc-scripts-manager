@@ -23,7 +23,7 @@ jobs:
         run: |
           yarn install
           cd web
-          yarn install --verbose
+          yarn install
 
       - name: Build extension
         run: |
