@@ -25,6 +25,12 @@ jobs:
           cd web
           yarn install
 
+      - name: Build extension
+        run: |
+          NODE_OPTIONS="--openssl-legacy-provider" yarn compile
+        env:
+          NODE_OPTIONS: '--openssl-legacy-provider'
+
       - name: Publish to Open VSX Registry
         uses: HaaLeo/publish-vscode-extension@v1
         with:
